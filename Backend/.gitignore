@@ -1,2 +1,18 @@
 node_modules
 .env
+
+
+
+# to run in the docker container use below code int he terminal
+
+# first make an image mongo as we need to connect with mongodb so their is need 
+# docker run -d -v vol_database:/data/db --name backend_container --network m_c_n -p 27017:27017 mongo
+# here i create a volume named vol_database and giving this container name backend_container and also create anetwork by named as a m_c_n and then port mapping and then give image name i.e. mongo
+
+
+# build the image docker filed name backed 
+# docker build -t backend .
+
+# now to run the backend image use below code 
+# docker run -p 8000:8000 -e PORT=8000 -e MONGODB_URI=mongodb://backend_container:27017/Blinkit -e SECRET_KEY=BlinkitAssignment --name backenDHELPING --network m_c_n  backend
+# here i attch the name the name of container in the database url and also attach container name backenDHELPING and to the same same network m_c_n and also give the port mapping and image name backend
